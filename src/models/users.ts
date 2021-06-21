@@ -1,9 +1,12 @@
 export interface User {
-
-    name: string;
     email: string;
-    age: string;
-    address: string;
-    password: string;
+    userPassword: string;
 
+    token?: string;
+
+    name?: string;
+    age?: number;
+    address?: string;
+    confirmationPassword?: string;
+    
 }

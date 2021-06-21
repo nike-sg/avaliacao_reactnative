@@ -2,9 +2,13 @@ import React, { useRef } from 'react';
 import { Text, TextInput, Image, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, ScrollView, Alert} from 'react-native';
 import { BorderlessButton as Button } from 'react-native-gesture-handler';
 import styles from './styles';
-
+import * as actions from './actions';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignupPage() {
+  
+  const navigation = useNavigation();
+
   const emailRef = useRef();
   const ageRef = useRef();
   const addressRef = useRef();
@@ -13,18 +17,20 @@ export default function SignupPage() {
 
   const [ name, setName ] = React.useState('');
   const [ email, setEmail ] = React.useState('');
-  const [ age, setAge ] = React.useState('');
+  const [ age, setAge ] = React.useState(0);
   const [ address, setAddress ] = React.useState('');
-  const [ password, setPassword ] = React.useState('');
+  const [ userPassword, setPassword ] = React.useState('');
   const [ confirmationPassword, setConfirmationPassword ] = React.useState('');
 
   async function handleSave() {
-    try {
-        // actions.save(name, phone, timezone);
-        // navigation.goBack();
-    } catch (error) {
-        Alert.alert('Não foi possível cadastrar, verificar os dados!');
-    }
+    actions.save(name, email, age, address, userPassword, confirmationPassword)
+    .then(() => {
+      Alert.alert('Cadastrado','Por favor se logue.');
+      navigation.goBack();
+    })
+    .catch((error) => {
+      Alert.alert('Dados inválidos!',error);
+    });
   }
 
 
@@ -50,6 +56,9 @@ export default function SignupPage() {
         style={styles.input} 
         placeholder="Email" 
         keyboardType='email-address'
+        autoCapitalize='none'
+        autoCorrect={false}
+        autoCompleteType='email'
         ref={emailRef}
         returnKeyType="next"
         onSubmitEditing={() => { ageRef.current.focus();}}
