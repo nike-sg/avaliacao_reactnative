@@ -9,11 +9,11 @@ export default function SignupPage() {
   
   const navigation = useNavigation();
 
-  const emailRef = useRef();
-  const ageRef = useRef();
-  const addressRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmationRef = useRef();
+  const emailRef = useRef<any>();
+  const ageRef = useRef<any>();
+  const addressRef = useRef<any>();
+  const passwordRef = useRef<any>();
+  const passwordConfirmationRef = useRef<any>();
 
   const [ name, setName ] = React.useState('');
   const [ email, setEmail ] = React.useState('');

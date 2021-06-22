@@ -8,7 +8,7 @@ import * as actions from './actions';
 export default function LoginPage() {
 
   const navigation = useNavigation();
-  const passwordRef = useRef();
+  const passwordRef = useRef<any>();
   
   const [ email, setEmail ] = React.useState('');
   const [ userPassword, setPassword ] = React.useState('');
