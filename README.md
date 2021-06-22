@@ -12,3 +12,13 @@ antes de iniciar se você não tiver feito as intalações das dependencias rode
 # Techs
 - JS
 - React Native
+
+# Images
+- Home
+![Home](https://github.com/nike-sg/avaliacao_reactnative/blob/main/assets/readme/home.PNG?raw=true)
+
+- Signup
+![Signup](https://github.com/nike-sg/avaliacao_reactnative/blob/main/assets/readme/signup.PNG?raw=true)
+
+- Products
+![Products](https://github.com/nike-sg/avaliacao_reactnative/blob/main/assets/readme/products.PNG?raw=true)
